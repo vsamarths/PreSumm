@@ -327,7 +327,7 @@ class Translator(object):
 
             # Append last prediction.
             alive_seq = torch.cat(
-                [alive_seq.index_select(0, select_indices),
+                [alive_seq.index_select(0, select_indices.int()),
                  topk_ids.view(-1, 1)], -1)
 
             is_finished = topk_ids.eq(self.end_token)
