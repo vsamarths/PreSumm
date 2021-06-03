@@ -107,7 +107,7 @@ class Translator(object):
             pred_sents = ''
             for pred_cand in preds[b]:
                 pred_sent = self.vocab.convert_ids_to_tokens([int(n) for n in pred_cand])
-                pred_sent = ' '.join(pred_sents).replace(' ##','')
+                pred_sent = ' '.join(pred_sent).replace(' ##','')
                 pred_sents += ('----'+pred_sent+'\n')
             pred_sents +='\n'
             
