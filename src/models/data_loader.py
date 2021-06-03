@@ -332,13 +332,13 @@ def load_text(args, source_fp, target_fp, device):
                 batch = Batch()
                 batch.src  = src
                 batch.tgt  = None
-                batch.mask_src  = torch.BoolTensor(mask_src)
+                batch.mask_src  = mask_src.bool()
                 batch.mask_tgt  = None
                 batch.segs  = segs
                 batch.src_str  =  [[sent.replace('[SEP]','').strip() for sent in x.split('[CLS]')]]
                 batch.tgt_str  = ['']
                 batch.clss  = clss
-                batch.mask_cls  = torch.BoolTensor(mask_cls)
+                batch.mask_cls  = torch.bool()
 
                 batch.batch_size=1
                 yield batch
