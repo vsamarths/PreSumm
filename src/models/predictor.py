@@ -368,9 +368,9 @@ class Translator(object):
                     .view(-1, alive_seq.size(-1))
             # Reorder states.
             select_indices = batch_index.view(-1)
-            src_features = src_features.index_select(0, select_indices)
+            src_features = src_features.index_select(0, select_indices.to(torch.int64))
             dec_states.map_batch_fn(
-                lambda state, dim: state.index_select(dim, select_indices))
+                lambda state, dim: state.index_select(dim, select_indices.to(torch.int64)))
 
         return results
 
