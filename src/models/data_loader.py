@@ -338,7 +338,7 @@ def load_text(args, source_fp, target_fp, device):
                 batch.src_str  =  [[sent.replace('[SEP]','').strip() for sent in x.split('[CLS]')]]
                 batch.tgt_str  = ['']
                 batch.clss  = clss
-                batch.mask_cls  = torch.bool()
+                batch.mask_cls  = mask_cls.bool()
 
                 batch.batch_size=1
                 yield batch
